@@ -4,6 +4,7 @@
 //
 //  Created by kumatt on 2025/1/2.
 //
+// MARK: - 02.顶点索引缓冲+创建一个简单的矩形
 
 import UIKit
 import MetalKit

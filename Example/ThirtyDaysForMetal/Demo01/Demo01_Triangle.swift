@@ -4,7 +4,7 @@
 //
 //  Created by kumatt on 2024/12/31.
 //
-// MARK: - 01.创建一个简易的三角形
+// MARK: - 01.创建一个最简单的三角形所需了解的概念和流程
 
 import UIKit
 import MetalKit
