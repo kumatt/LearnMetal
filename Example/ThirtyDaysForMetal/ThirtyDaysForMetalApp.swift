@@ -12,7 +12,7 @@ import SwiftUI
 struct ThirtyDaysForMetalApp: App {
     var body: some Scene {
         WindowGroup {
-            Demo01_TriangleView()
+            ContentView()
         }
     }
 }

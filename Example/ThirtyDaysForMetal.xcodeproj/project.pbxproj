@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D12031CB2D2626A10019588B /* Demo02_Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12031CA2D2626A10019588B /* Demo02_Rectangle.swift */; };
+		D12031CD2D262B280019588B /* MetalDemoRepresentableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12031CC2D262B280019588B /* MetalDemoRepresentableView.swift */; };
+		D12031CF2D262F0C0019588B /* Demo02_Rectangle.metal in Sources */ = {isa = PBXBuildFile; fileRef = D12031CE2D262F0C0019588B /* Demo02_Rectangle.metal */; };
 		D1393EEA2D23F5DA0046B7C5 /* ThirtyDaysForMetalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393EE92D23F5DA0046B7C5 /* ThirtyDaysForMetalApp.swift */; };
 		D1393EEC2D23F5DA0046B7C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393EEB2D23F5DA0046B7C5 /* ContentView.swift */; };
 		D1393EEE2D23F5DB0046B7C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1393EED2D23F5DB0046B7C5 /* Assets.xcassets */; };
 		D1393EF12D23F5DB0046B7C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1393EF02D23F5DB0046B7C5 /* Preview Assets.xcassets */; };
 		D1393EFB2D23F5EE0046B7C5 /* Demo01_shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D1393EF72D23F5ED0046B7C5 /* Demo01_shaders.metal */; };
 		D1393EFC2D23F5EE0046B7C5 /* Demo01_Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393EF82D23F5ED0046B7C5 /* Demo01_Triangle.swift */; };
-		D1393EFD2D23F5EE0046B7C5 /* Demo01_TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1393EF92D23F5ED0046B7C5 /* Demo01_TriangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D12031CA2D2626A10019588B /* Demo02_Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo02_Rectangle.swift; sourceTree = "<group>"; };
+		D12031CC2D262B280019588B /* MetalDemoRepresentableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDemoRepresentableView.swift; sourceTree = "<group>"; };
+		D12031CE2D262F0C0019588B /* Demo02_Rectangle.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Demo02_Rectangle.metal; sourceTree = "<group>"; };
 		D1393EE62D23F5D90046B7C5 /* ThirtyDaysForMetal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirtyDaysForMetal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1393EE92D23F5DA0046B7C5 /* ThirtyDaysForMetalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirtyDaysForMetalApp.swift; sourceTree = "<group>"; };
 		D1393EEB2D23F5DA0046B7C5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,7 +29,6 @@
 		D1393EF02D23F5DB0046B7C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1393EF72D23F5ED0046B7C5 /* Demo01_shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Demo01_shaders.metal; sourceTree = "<group>"; };
 		D1393EF82D23F5ED0046B7C5 /* Demo01_Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo01_Triangle.swift; sourceTree = "<group>"; };
-		D1393EF92D23F5ED0046B7C5 /* Demo01_TriangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo01_TriangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D12031C92D2623BB0019588B /* Demo02 */ = {
+			isa = PBXGroup;
+			children = (
+				D12031CA2D2626A10019588B /* Demo02_Rectangle.swift */,
+				D12031CE2D262F0C0019588B /* Demo02_Rectangle.metal */,
+			);
+			path = Demo02;
+			sourceTree = "<group>";
+		};
+		D12031D42D2638D90019588B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D12031CC2D262B280019588B /* MetalDemoRepresentableView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D1393EDD2D23F5D90046B7C5 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +78,8 @@
 		D1393EE82D23F5D90046B7C5 /* ThirtyDaysForMetal */ = {
 			isa = PBXGroup;
 			children = (
+				D12031D42D2638D90019588B /* Shared */,
+				D12031C92D2623BB0019588B /* Demo02 */,
 				D1393EFA2D23F5ED0046B7C5 /* Demo01 */,
 				D1393EE92D23F5DA0046B7C5 /* ThirtyDaysForMetalApp.swift */,
 				D1393EEB2D23F5DA0046B7C5 /* ContentView.swift */,
@@ -79,7 +102,6 @@
 			children = (
 				D1393EF72D23F5ED0046B7C5 /* Demo01_shaders.metal */,
 				D1393EF82D23F5ED0046B7C5 /* Demo01_Triangle.swift */,
-				D1393EF92D23F5ED0046B7C5 /* Demo01_TriangleView.swift */,
 			);
 			path = Demo01;
 			sourceTree = "<group>";
@@ -156,8 +178,10 @@
 			files = (
 				D1393EFB2D23F5EE0046B7C5 /* Demo01_shaders.metal in Sources */,
 				D1393EEC2D23F5DA0046B7C5 /* ContentView.swift in Sources */,
-				D1393EFD2D23F5EE0046B7C5 /* Demo01_TriangleView.swift in Sources */,
 				D1393EEA2D23F5DA0046B7C5 /* ThirtyDaysForMetalApp.swift in Sources */,
+				D12031CB2D2626A10019588B /* Demo02_Rectangle.swift in Sources */,
+				D12031CF2D262F0C0019588B /* Demo02_Rectangle.metal in Sources */,
+				D12031CD2D262B280019588B /* MetalDemoRepresentableView.swift in Sources */,
 				D1393EFC2D23F5EE0046B7C5 /* Demo01_Triangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
