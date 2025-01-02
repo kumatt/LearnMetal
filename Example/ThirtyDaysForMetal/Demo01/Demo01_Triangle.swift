@@ -33,8 +33,12 @@ class Demo01_TriangleRender: NSObject {
         self.pipelineState = pipelineState
         self.vertices = vertices
         self.vertexBuffer = vertexBuffer
+        super.init()
     }
-    
+}
+
+// MARK: - init require config
+extension Demo01_TriangleRender {
     convenience init?(_ value: Void = ()) {
         /// 顶点数据
         let vertices = [
@@ -51,23 +55,8 @@ class Demo01_TriangleRender: NSObject {
             return nil
         }
         
-        /// 加载默认的着色器库
-        let library = device.makeDefaultLibrary()
-        /// 从默认的着色器库中获取顶点和片元着色器
-        let vertexFunction = library?.makeFunction(name: "vertex_main")
-        let fragmentFunction = library?.makeFunction(name: "fragment_main")
-        
-        // 创建顶点描述符
-        let vertexDescriptor = Demo01_TriangleRender.createVertexDescriptor()
-        
         // 配置渲染管线描述符
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
-        // 设置颜色附件的像素格式，需与MTKView的pixelFormat一致
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        
-        pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        let pipelineDescriptor = Demo01_TriangleRender.createPipelineDescriptor(device: device)
         
         do {
             // 创建渲染管线状态
@@ -80,8 +69,35 @@ class Demo01_TriangleRender: NSObject {
     }
 }
 
+// MARK: - create config
 private extension Demo01_TriangleRender {
-    /// 顶点描述符（描述顶点数据的内容）
+    /// 创建渲染管线的描述符（描述渲染管线中的各个流水线）
+    class func createPipelineDescriptor(device: MTLDevice) -> MTLRenderPipelineDescriptor {
+        // Step1 获取着色器方法
+        /// 加载默认的着色器库
+        let library = device.makeDefaultLibrary()
+        /// 从默认的着色器库中获取顶点和片元着色器
+        let vertexFunction = library?.makeFunction(name: "vertex_main")
+        let fragmentFunction = library?.makeFunction(name: "fragment_main")
+        
+        // Step2 创建顶点描述符
+        let vertexDescriptor = createVertexDescriptor()
+        
+        // Step3 配置渲染管线描述符
+        let pipelineDescriptor = MTLRenderPipelineDescriptor()
+        /// 为渲染管线描述符添加顶点着色器和片元着色器方法
+        pipelineDescriptor.vertexFunction = vertexFunction
+        pipelineDescriptor.fragmentFunction = fragmentFunction
+        /// 为渲染管线描述符添加顶点描述符
+        pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        
+        // 设置颜色附件的像素格式，需与MTKView的pixelFormat一致
+        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        
+        return pipelineDescriptor
+    }
+    
+    /// 创建顶点描述符（描述顶点数据的内容）
     class func createVertexDescriptor() -> MTLVertexDescriptor {
         // 创建顶点描述符
         let vertexDescriptor = MTLVertexDescriptor()
@@ -101,15 +117,15 @@ private extension Demo01_TriangleRender {
         vertexDescriptor.attributes[1].bufferIndex = 0
         
         // 配置缓冲区布局
-        /// 每个顶点的大小
+        /// 每个顶点数据的步长
         vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
-        /// 每个顶点步进
+        /// 每个顶点数据的步进方式
         vertexDescriptor.layouts[0].stepFunction = .perVertex
         return vertexDescriptor
     }
-    
 }
 
+// MARK: - draw texture
 extension Demo01_TriangleRender: MTKViewDelegate {
     // MTKViewDelegate 方法，当视图的drawable尺寸发生变化时调用
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
